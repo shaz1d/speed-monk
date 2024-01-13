@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker";
 import ResetButton from "./components/ResetButton";
+import Results from "./components/Results";
 
 const words = faker.word.words(10);
 
@@ -12,6 +13,7 @@ function App() {
         className="mx-auto mt-10 text-slate-500"
         onReset={() => null}
       />
+      <Results accuracyPercentage={90} errors={20} total={80} />
     </>
   );
 }
