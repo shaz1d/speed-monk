@@ -11,7 +11,7 @@ function App() {
       <CountdownTimer timeLeft={30} />
       <div className="relative text-3xl text-justify max-w-4xl mt-3  leading-relaxed">
         <GeneratedWords words={words} />
-        <UserTypings userInput={words} />
+        <UserTypings userInput={"text"} />
       </div>
 
       <ResetButton

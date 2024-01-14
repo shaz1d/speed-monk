@@ -1,3 +1,5 @@
+import Caret from "./Caret";
+
 type Props = {
   userInput: string;
 };
@@ -9,6 +11,7 @@ const UserTypings = ({ userInput }: Props) => {
       {typedCharacters.map((char, index) => {
         return <Character key={`${char}_${index}`} char={char} />;
       })}
+      <Caret />
     </div>
   );
 };
