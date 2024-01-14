@@ -4,13 +4,13 @@ import UserTypings from "./components/UserTypings";
 import useEngine from "./hooks/useEngine";
 
 function App() {
-  const { state, words, timeLeft } = useEngine();
+  const { words, timeLeft, typed } = useEngine();
   return (
     <>
       <CountdownTimer timeLeft={timeLeft} />
       <div className="relative text-3xl text-justify max-w-4xl mt-3  leading-relaxed">
         <GeneratedWords words={words} />
-        <UserTypings userInput={"text"} />
+        <UserTypings userInput={typed} />
       </div>
 
       <ResetButton
