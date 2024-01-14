@@ -8,9 +8,9 @@ function App() {
   return (
     <>
       <CountdownTimer timeLeft={timeLeft} />
-      <div className="relative text-3xl text-justify max-w-4xl mt-3  leading-relaxed">
+      <div className="relative text-3xl break-all max-w-4xl mt-3 leading-relaxed">
         <GeneratedWords words={words} />
-        <UserTypings userInput={typed} />
+        <UserTypings userInput={typed} words={words} />
       </div>
 
       <ResetButton
