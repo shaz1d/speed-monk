@@ -1,14 +1,13 @@
-import { faker } from "@faker-js/faker";
 import ResetButton from "./components/ResetButton";
 import Results from "./components/Results";
 import UserTypings from "./components/UserTypings";
-
-const words = faker.word.words(10);
+import useEngine from "./hooks/useEngine";
 
 function App() {
+  const { state, words, timeLeft } = useEngine();
   return (
     <>
-      <CountdownTimer timeLeft={30} />
+      <CountdownTimer timeLeft={timeLeft} />
       <div className="relative text-3xl text-justify max-w-4xl mt-3  leading-relaxed">
         <GeneratedWords words={words} />
         <UserTypings userInput={"text"} />
