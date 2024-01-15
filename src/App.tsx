@@ -2,9 +2,11 @@ import ResetButton from "./components/ResetButton";
 import Results from "./components/Results";
 import UserTypings from "./components/UserTypings";
 import useEngine from "./hooks/useEngine";
+import { calculateAccuracyPercentage } from "./utils/helpers";
 
 function App() {
-  const { words, timeLeft, typed } = useEngine();
+  const { state, words, timeLeft, typed, errors, restart, totalTyped } =
+    useEngine();
   return (
     <>
       <CountdownTimer timeLeft={timeLeft} />
@@ -13,11 +15,13 @@ function App() {
         <UserTypings userInput={typed} words={words} />
       </div>
 
-      <ResetButton
-        className="mx-auto mt-10 text-slate-500"
-        onReset={() => null}
+      <ResetButton className="mx-auto mt-10 text-slate-500" onReset={restart} />
+      <Results
+        state={state}
+        accuracyPercentage={calculateAccuracyPercentage(errors, totalTyped)}
+        errors={errors}
+        total={totalTyped}
       />
-      <Results accuracyPercentage={90} errors={20} total={80} />
     </>
   );
 }

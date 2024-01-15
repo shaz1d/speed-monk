@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
 import { formatPercentage } from "../utils/helpers";
+import { State } from "../hooks/useEngine";
 
 type Props = {
+  state: State;
   accuracyPercentage: number;
   errors: number;
   total: number;
 };
 
-const Results = ({ accuracyPercentage, errors, total }: Props) => {
+const Results = ({ state, accuracyPercentage, errors, total }: Props) => {
   const initial = { opacity: 0 };
   const animate = { opacity: 1 };
   const duration = { duration: 0.3 };
+
+  if (state !== "finish") {
+    return null;
+  }
   return (
     <motion.ul className="flex flex-col items-center text-primary-500 space-y-3">
       <motion.li
